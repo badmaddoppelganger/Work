@@ -1,13 +1,10 @@
 """
-Домашнее задание №2
-Классы и модули
+Init file
 """
-from . import base, car, engine, exceptions, plane
+from . import check_passport, check_series, check_number
 
 __all__ = [
-    "base",
-    "car",
-    "engine",
-    "exceptions",
-    "plane",
+    "check_number",
+    "check_passport",
+    "check_series",
 ]
