@@ -1,10 +1,11 @@
 """Check the firstname (base-validate)"""
-from check_cyrillic_string import check_string
+from check_string_with_cyrillic import check_string
 
 
 def check_firstname(firstname: str) -> dict:
     """Validate firstname-string"""
-    return {'firstname': check_string(firstname)} if check_string(firstname) is not None \
+    clear_firstname = check_string(firstname)
+    return {'firstname': clear_firstname} if clear_firstname is not None \
         else {'Error': 'Invalid firstname'}
 
 

@@ -1,7 +1,7 @@
 """
 Init file
 """
-from . import check_passport, check_firstname, check_number, check_issued_on, check_lastname, check_cyrillic_string
+from . import check_number, check_passport, check_firstname, check_issued_on, check_lastname, check_string_with_cyrillic
 
 __all__ = [
     "check_number",
@@ -9,5 +9,5 @@ __all__ = [
     "check_firstname",
     "check_issued_on",
     "check_lastname",
-    "check_cyrillic_string"
+    "check_string_with_cyrillic.py"
 ]

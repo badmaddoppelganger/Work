@@ -9,12 +9,13 @@ import importlib
 # result = func()
 
 def check_passport(fields: dict) -> dict:
+    answer_lst = []
     if len(fields) > 0:
         for key, value in fields.items():
             func = getattr(importlib.import_module("check_" + key), "check_" + key)
-            func(value)
-        return print(fields)
+            answer_lst.append(func(value))
+        return print(answer_lst)
 
 
-check_passport({'number': '585020', 'firstname': '@#%$Пи--лин-т23345%$#@', 'lastname': '@#%$Агрегатор Плюс23345%$#@',
+check_passport({'number': '46876', 'firstname': '@#%$Пи--лин-т23345%$#@', 'lastname': '@#%$Агрегатор Плюс23345%$#@',
                 'middlename': '@#$Самолет'})
