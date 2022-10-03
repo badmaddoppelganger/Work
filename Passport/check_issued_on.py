@@ -2,33 +2,26 @@
 Check the passport - only issue date and birthdate
 Note - 20 and 45 years is the points of exchange passport
 """
-
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-
-def check_issued_on(date_of_birth: datetime, issued_on: datetime):
+def check_issued_on(birthday: datetime, issued_on: datetime) -> dict:
     """Note - 20 and 45 years is the points of exchange passport
     Check by count age (today - birthday) and issue date"""
-    if issued_on > datetime.now() or date_of_birth > datetime.now() or date_of_birth > issued_on:
+    first_exchange = birthday + relativedelta(years=+20)
+    second_exchange = birthday + relativedelta(years=+45)
+    if issued_on > datetime.now() or birthday > datetime.now() \
+            or birthday > issued_on or issued_on < birthday + relativedelta(years=+14):
         return {'Error': 'Wrong date of issue or birthdate'}
-
-    # If age < 20 years => stop the process
-    if datetime.now() < date_of_birth + relativedelta(years=+20):
+    if datetime.now() < first_exchange:
         return {'Error': False}
-
-    # If issue date > 45 years => stop the process
-    if  issued_on >= date_of_birth + relativedelta(years=+45):
+    if  issued_on >= second_exchange:
         return {'Error': False}
-
-    # If age > 20 check that issue date
-    if date_of_birth+relativedelta(years=+45) > issued_on >= date_of_birth+relativedelta(years=+20)\
-            and datetime.now() < date_of_birth + relativedelta(years=+45):
+    if first_exchange <= issued_on < second_exchange\
+            and datetime.now() < second_exchange:
         return {'Error': False}
-
     return {'Error': 'Passport expired'}
 
-
-date_of_birthday = datetime.strptime('1977-10-02T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
-date_of_issued = datetime.strptime('2022-10-01T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
-print(check_issued_on(date_of_birthday, date_of_issued))
+#date_of_birthday = datetime.strptime('2002-10-03T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
+#issue_date = datetime.strptime('2022-10-03T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
+#print(check_issued_on(date_of_birthday, issue_date))
