@@ -39,8 +39,8 @@ def warning_case(passport_change_date: datetime, sign_date: datetime,
     return return_body
 
 
-date_of_birthday = datetime.strptime('2002-10-05T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
-issue_date = datetime.strptime('2020-10-01T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
-signing_date = datetime.strptime('2022-10-15T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
+# date_of_birthday = datetime.strptime('2002-10-05T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
+# issue_date = datetime.strptime('2020-10-01T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
+# signing_date = datetime.strptime('2022-10-15T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
 
 print(check_issued_on(date_of_birthday, issue_date, signing_date))
