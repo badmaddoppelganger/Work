@@ -8,7 +8,7 @@ import importlib
 # func = getattr(mod, func_name)
 # result = func()
 
-def check_passport(fields: dict):
+def check_passport(fields: dict) -> dict:
     if len(fields) > 0:
         for key, value in fields.items():
             func = getattr(importlib.import_module("check_" + key), "check_" + key)
@@ -16,4 +16,5 @@ def check_passport(fields: dict):
         return print(fields)
 
 
-check_passport({'number': 585020, 'series': 2715})
+check_passport({'number': '585020', 'firstname': '@#%$Пи--лин-т23345%$#@', 'lastname': '@#%$Агрегатор Плюс23345%$#@',
+                'middlename': '@#$Самолет'})

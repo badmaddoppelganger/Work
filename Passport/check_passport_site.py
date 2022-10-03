@@ -4,6 +4,7 @@ Note - 20 and 45 years is the points of exchange passport
 """
 
 from datetime import datetime
+
 from dateutil.relativedelta import relativedelta
 
 
@@ -43,4 +44,4 @@ def warning_case(passport_change_date: datetime, sign_date: datetime,
 # issue_date = datetime.strptime('2020-10-01T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
 # signing_date = datetime.strptime('2022-10-15T00:00:00.000Z', '%Y-%m-%dT%H:%M:%S.%fZ')
 
-print(check_issued_on(date_of_birthday, issue_date, signing_date))
+# print(check_issued_on(date_of_birthday, issue_date, signing_date))

@@ -3,7 +3,9 @@ Check the passport - only issue date and birthdate
 Note - 20 and 45 years is the points of exchange passport
 """
 from datetime import datetime
+
 from dateutil.relativedelta import relativedelta
+
 
 def check_issued_on(birthday: datetime, issued_on: datetime) -> dict:
     """Note - 20 and 45 years is the points of exchange passport
