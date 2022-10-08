@@ -33,7 +33,13 @@ def check_issued_on(birthday: datetime, issued_on: datetime,
 
 def warning_case(passport_change_date: datetime, sign_date: datetime,
                  min_days_limit: relativedelta) -> dict:
-    """Return warning about passport details if we have too few days before date of deal"""
+    """Return warning about passport details if we have too few days before date of deal
+    :rtype: dict
+    :param passport_change_date: the nearest date when the person have to change passport
+    :param sign_date: day, that is the point of the deal
+    :param min_days_limit: the time limit to complete deal process
+    :return: dict with details about passport (expire status and/or deal possibility)
+    """
     return_body = {}
     if datetime.now() > passport_change_date - min_days_limit:
         return_body |= {'Warning_contact': f'{passport_change_date - datetime.now()}'

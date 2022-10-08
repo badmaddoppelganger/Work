@@ -14,7 +14,6 @@ def check_date(date: str):
         dt_obj = parser.parse(date)
     except parser.ParserError as parser_error:
         dt_obj = {"Error": parser_error}
-        print(type(parser_error))
     return dt_obj
 
 # print(check_date('2002-10-03T00:00:00.000Z'))
