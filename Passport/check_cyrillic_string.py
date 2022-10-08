@@ -8,7 +8,6 @@ def check_string(string: str) -> str:
                 "э", "ю", "я", "-", "."}
     clear_string = ''.join(filter(lambda el: el in alphabet, string.lower())) \
         .strip('.-').replace('--', '-')
-    return clear_string if len(clear_string) > 1 else None
-
+    return clear_string if 64 >= len(clear_string) > 1 else None
 
 # print(check_string('\"\'~!@@@#$%нефун--кциональныеи,,,her,,,-/.     '))

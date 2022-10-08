@@ -2,6 +2,7 @@
 import importlib
 from check_issued_on import check_issued_on
 
+
 # function_string = 'mypackage.mymodule.myfunc'
 # mod_name, func_name = function_string.rsplit('.',1)
 # mod = importlib.import_module(mod_name)
@@ -9,11 +10,11 @@ from check_issued_on import check_issued_on
 # result = func()
 
 def check_passport(fields: dict) -> dict:
-    answer_lst = []
+    answer_lst = {}
     if len(fields) > 0:
         for key, value in fields.items():
             func = getattr(importlib.import_module("check_" + key), "check_" + key.lower())
-            answer_lst.append(func(value))
+            answer_lst |= {key: (func(value))}
 
         return print(answer_lst)
 

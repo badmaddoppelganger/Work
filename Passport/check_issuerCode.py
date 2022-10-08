@@ -3,10 +3,13 @@ from check_string_of_digits import check_string_of_digits
 
 
 def check_issuercode(issuercode: str) -> dict:
-    """Validate string with issuerCode of passport"""
-    clear_issuerCode = check_string_of_digits(issuercode)
-    return {'issuerCode': clear_issuerCode} if len(clear_issuerCode) == 6 \
+    """Validate string with series of passport
+     :param issuercode: number of the passport
+     :return: clean issuer code or dict with the details of error
+     """
+    clear_issuerCode: str = check_string_of_digits(issuercode)
+    return clear_issuerCode if len(clear_issuerCode) == 6 \
         else {'Error': 'Invalid issuerCode'}
 
 
-# print(check_issuerCode("!@#@$#%$^YHGFVCVB1NJYUYTrert74er6ujhvcd876[]"))
+# print(check_issuercode("!@#@$#%$^YHGFVCVB1NJYUYTrert74er6ujhvcd876[]"))

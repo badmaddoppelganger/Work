@@ -3,9 +3,12 @@ from check_string_of_digits import check_string_of_digits
 
 
 def check_number(number: str) -> dict:
-    """Validate firstname-string"""
-    clear_number = check_string_of_digits(number)
-    return {'number': clear_number} if len(clear_number) == 6 \
+    """Validate string with series of passport
+    :param number: number of the passport
+    :return: clean number or dict with the details of error
+    """
+    clear_number: str = check_string_of_digits(number)
+    return clear_number if len(clear_number) == 6 \
         else {'Error': 'Invalid number'}
 
 

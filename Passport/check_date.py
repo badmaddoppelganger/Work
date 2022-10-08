@@ -12,5 +12,6 @@ def check_date(date: str):
         dt_obj = {"Error": parser_error}
     return dt_obj
 
-
-# print(check_date('1921-10-10'))
+# print(check_date('2002-10-03T00:00:00.000Z'))
+# print(check_date('2002-10-03'))
+# print(check_date('2002-10-03T00:00.000Z'))
