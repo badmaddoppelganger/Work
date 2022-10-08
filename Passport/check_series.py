@@ -2,13 +2,15 @@
 from check_string_of_digits import check_string_of_digits
 
 
-def check_series(series: str) -> str:
+def check_series(series: str) -> str or dict[str, str]:
+    # Re-write function return annotation as "->  str | dict[str, str]" (work in Python 3.10+)
     """Validate string with series of passport
+    :rtype: str or dict[str, str]
     :param series: series of the passport
-    :return: clean series or dict with the details of error
+    :return : clean series or dict with the details of error
     """
-    clear_series: str = check_string_of_digits(series)
-    return clear_series if len(clear_series) == 4 \
+    clean_series: str = check_string_of_digits(series)
+    return clean_series if len(clean_series) == 4 \
         else {'Error': 'Invalid series'}
 
 

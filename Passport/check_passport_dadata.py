@@ -15,6 +15,7 @@ def is_valid(passport_value: str) -> bool:
     where '0' is Valid option and '10' is Invalid.
     Warning: False-answer must be checked manually, see more details in the link below
              https://dadata.ru/api/clean/passport/
+    :rtype: bool
     :param passport_value: string-concatenation of passport's number and series
     :return: status as the boolean expression"""
     dadata = Dadata(TOKEN, SECRET)
@@ -26,6 +27,7 @@ def fill_issued_by(issuer_code: str) -> str:
     """Convert issuer code to the fullname of the passport's issuer
     Can work with the raw-data (like '390-021') but highly recommended to pre-processing value:
             please check the 'Passport/check_string_of_digits.py/check_string_of_digits'
+    :rtype: str
     :param issuer_code: string issuer code from the passport
     :return: the raw_name only but contains more details in the dict(see details-link below)
              https://dadata.ru/api/suggest/fms_unit/"""
@@ -37,6 +39,7 @@ def fill_issued_by(issuer_code: str) -> str:
 def address_normalize(address: str) -> dict:
     """Return the raw address after the normalization process and the address
      as the object (dict-type)
+     :rtype: dict
      :param address: string which contains raw-address
      :return: dict that contains the raw address after the normalization process
               and the address as the object (see details-link below)

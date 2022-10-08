@@ -2,8 +2,10 @@
 from check_string_of_digits import check_string_of_digits
 
 
-def check_issuercode(issuercode: str) -> dict:
+def check_issuercode(issuercode: str) -> str or dict[str, str]:
+    # Re-write function return annotation as "->  str | dict[str, str]" (work in Python 3.10+)
     """Validate string with series of passport
+     :rtype: str or dict[str, str]
      :param issuercode: number of the passport
      :return: clean issuer code or dict with the details of error
      """

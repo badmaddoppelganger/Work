@@ -4,10 +4,15 @@ from dateutil.relativedelta import relativedelta
 from check_date import check_date
 
 
-def check_issuedate(issueDate: str):
-    """Convert birthday-string to datetime format"""
+def check_issuedate(issueDate: str) -> str or dict[str, str]:
+    # Re-write function return annotation as "->  str | dict[str, str]" (work in Python 3.10+)
+    """Convert birthday-string to datetime format
+    :rtype: str or dict[str, str]
+    :param issueDate:
+    :return: birthdate in datetime format or dict with error details
+    """
     clear_issuedate = check_date(issueDate)
-    if type(clear_issuedate) == dict:
+    if clear_issuedate is True:
         return clear_issuedate
     if clear_issuedate <= datetime.strptime('1991-09-01', '%Y-%m-%d'):
         return {'Error': 'Date is too old'}

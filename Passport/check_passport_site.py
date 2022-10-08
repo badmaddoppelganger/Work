@@ -8,14 +8,19 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 
-def check_issued_on(birthday: datetime, issued_on: datetime, sign_date: datetime = None) -> dict:
+def check_issued_on(birthday: datetime, issued_on: datetime,
+                    sign_date: datetime = None) -> dict:
     """Note - 20 and 45 years is the points of exchange passport
-    Check by count age (today - birthday) and issue date"""
+    Check by count age (today - birthday) and issue date
+    :rtype: dict
+    :param birthday: day of birthdate in the datetime format
+    :param issued_on: day of issue in the datetime format
+    :param sign_date: day, that is the point of the deal
+    :return: True or dict with error details"""
     first_exchange = birthday + relativedelta(years=+20)
     second_exchange = birthday + relativedelta(years=+45)
-    min_days_limit = relativedelta(days=+30)
-    if issued_on > datetime.now() or birthday > datetime.now() \
-            or birthday > issued_on or issued_on < birthday + relativedelta(years=+14):
+    min_days_limit = relativedelta(days=+30)  # Means the time to complete deal process
+    if birthday > issued_on or issued_on < birthday + relativedelta(years=+14):
         return {'Error': 'Wrong date of issue or birthdate'}
     if datetime.now() < first_exchange:
         return warning_case(first_exchange, sign_date, min_days_limit)

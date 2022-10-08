@@ -1,5 +1,5 @@
 """
-Init file
+Init file with all the files in the package
 """
 from . import check_number, check_passport, check_firstname, check_issued_on, check_lastname,\
     check_cyrillic_string, check_date, check_birthday, check_series, check_string_of_digits, \

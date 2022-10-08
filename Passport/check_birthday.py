@@ -5,7 +5,11 @@ from check_date import check_date
 
 
 def check_birthday(birthday: str):
-    """Convert birthday-string to datetime format"""
+    """Convert birthday-string to datetime format
+    :rtype: datetime or dict[str, str]
+    :param birthday: string-like birthdate
+    :return: datetime object with the time or dict with error details
+    """
     clear_birthday = check_date(birthday)
     if type(clear_birthday) == dict:
         return clear_birthday
